@@ -102,11 +102,11 @@ var parseArgs = func() *list.List {
 
 			valueBuffer = append(valueBuffer, i) // Append strings till we find a new variableDeclaration
 
-			if len(os.Args) == index+1 { // Last element
-				preparedList.PushFront(map[string][]string{keyBuffer: valueBuffer})
-			}
 		}
 
+		if len(os.Args) == index+1 { // Last element
+			preparedList.PushFront(map[string][]string{keyBuffer: valueBuffer})
+		}
 	}
 
 	return preparedList
