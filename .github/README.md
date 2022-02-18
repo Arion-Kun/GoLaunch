@@ -6,5 +6,5 @@ Requirements:
 In the current project folder import the module
 
 ```bash
-go get -u github.com/Arion-Kun/GoLaunch@1.0.0
+go get -u github.com/Arion-Kun/GoLaunch@1.0.1
 ```
