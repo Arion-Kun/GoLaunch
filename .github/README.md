@@ -1,3 +1,5 @@
+An alternative to the `flag` module.
+
 ## ⚙️ Installation
 
 Requirements:
