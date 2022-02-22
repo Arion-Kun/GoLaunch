@@ -34,7 +34,7 @@ import (
 )
 
 func main() {
-  for _, m := range GoLaunch.GetSanitizedArgs() {
+  for m := range GoLaunch.GetSanitizedArgs() {
     for s, strings := range m {
       fmt.Println(s, strings)
     }
