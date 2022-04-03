@@ -38,14 +38,19 @@ func TryGetValue(key string) (bool, []string) {
 	return false, nil
 }
 
-func Contains(key string) bool {
+// Contains : If the sanitized args contains any of the following key values, it returns true.
+func Contains(key ...string) bool {
 	args := GetSanitizedArgs()
-
+	if key == nil {
+		return false
+	}
 	//Iterate over the arguments and check if the key is present, s2 is the key, and the value is discarded.
 	for _, arg := range args {
 		for s2 := range arg {
-			if key == s2 {
-				return true
+			for _, searchedArg := range key {
+				if searchedArg == s2 {
+					return true
+				}
 			}
 		}
 	}
@@ -53,7 +58,6 @@ func Contains(key string) bool {
 }
 func Get(key string) []string {
 	args := GetSanitizedArgs()
-
 	//Iterate over the arguments and check if the key is present, s2 is the key, and the value is discarded.
 	for _, arg := range args {
 		for s2 := range arg {
@@ -101,7 +105,6 @@ var parseArgs = func() *list.List {
 			} // if it doesn't start with a variable like - or --
 
 			valueBuffer = append(valueBuffer, i) // Append strings till we find a new variableDeclaration
-
 		}
 
 		if len(os.Args) == index+1 { // Last element
